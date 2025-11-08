@@ -1,0 +1,1059 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneesh V - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        :root {
+            --primary-bg: #111111; /* Very dark black */
+            --secondary-bg: #222222; /* Slightly lighter dark gray */
+            --text-color: #ffffff; /* Pure white text */
+            --accent-color: #cccccc; /* Light gray for accents (buttons, links) */
+            --link-hover-color: #ffffff; /* White for link hovers */
+            --card-bg: #07070769; /* Darker card background */
+            --border-color: #444444; /* Medium gray for borders */
+            --highlight-color: #dddddd; /* A brighter gray for main headings/highlights */
+        }
+        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--highlight-color); /* Use highlight color for main headings */
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--highlight-color); /* Underline matches heading */
+            border-radius: 5px;
+        }
+
+        a {
+            color: var(--accent-color); /* Links are light gray */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--link-hover-color); /* Links turn white on hover */
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--secondary-bg);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo a {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--highlight-color); /* Logo in highlight color */
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.03); opacity: 0.9; }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            padding: 0.5rem 0;
+            position: relative;
+            color: var(--text-color); /* Nav links are white */
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--link-hover-color); /* Underline is white on hover */
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+        }
+
+        .burger div {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* Using a grayscale placeholder image for consistency */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images8.alphacoders.com/131/1318500.jpeg') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+            color: var(--text-color); /* Hero heading is pure white */
+        }
+
+        .hero-content .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-color); /* Tagline is light gray */
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-color); /* Button background is light gray */
+            color: var(--primary-bg); /* Button text is dark */
+            padding: 1rem 2.5rem;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--link-hover-color); /* Button background turns white on hover */
+            transform: translateY(-3px);
+            color: var(--primary-bg); /* Ensure text color remains dark */
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 6rem 0;
+            background-color: var(--secondary-bg);
+            text-align: center;
+        }
+
+        .about-content-wrapper {
+            display: flex;
+            flex-direction: column; /* Default to column for smaller screens */
+            align-items: center;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .profile-image-container {
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--highlight-color);
+            box-shadow: 0 0 0 8px rgba(221, 221, 221, 0.2); /* Soft highlight ring */
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex-grow: 1;
+            text-align: left; /* Align text to left within its container */
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        /* What I Do Section (from image design) */
+        .what-i-do-section {
+            padding: 6rem 0;
+            background-color: var(--primary-bg);
+            text-align: center;
+        }
+
+        .what-i-do-section h2 {
+            color: var(--highlight-color); /* Heading color from the image */
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .what-i-do-section h2::after {
+            background-color: var(--highlight-color); /* Underline matches heading */
+        }
+
+        .what-i-do-section p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto;
+            color: var(--text-color);
+        }
+
+        /* Skills Showcase Section (Matching image design) */
+        .skills-showcase-section {
+            padding: 4rem 0;
+            background-color: var(--primary-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-showcase-container {
+            max-width: 1300px; /* Increased max-width for more space */
+            margin: 0 auto;
+            padding: 0 1rem; /* Adjusted horizontal padding */
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .skills-label {
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            padding: 1rem 0.5rem;
+            background-color: var(--secondary-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 1.5rem;
+        }
+
+        .skills-grid-image {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Changed to 5 equal columns */
+            gap: 1.5rem;
+            flex-grow: 1;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skill-item-image {
+            background-color: var(--card-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+        }
+
+        .skill-item-image:hover {
+            transform: translateY(-5px);
+            background-color: var(--secondary-bg);
+        }
+
+        .skill-item-image img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 0.5rem;
+            /* Removed filter: grayscale(100%); to allow original colors */
+        }
+
+        .skill-item-image span {
+            display: block;
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Projects Section */
+       /* Projects Section Styling */
+.projects-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2.5em;
+    color: var(--highlight-color);
+    margin-bottom: 40px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    position: relative;
+    backdrop-filter: blur(6px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+    border-color: #666;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.project-card h3 {
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.project-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 18px;
+    line-height: 1.6;
+    color: var(--accent-color);
+}
+
+.project-description.expanded {
+    -webkit-line-clamp: unset;
+    max-height: none;
+}
+
+.view-more-btn {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 700;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+    align-self: flex-start;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+.view-more-btn:hover {
+    background-color: var(--link-hover-color);
+    transform: translateY(-2px);
+}
+
+.project-link {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95em;
+    font-weight: 700;
+    border: 1px solid var(--border-color);
+    transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    align-self: flex-start;
+}
+
+.project-link:hover {
+    background-color: var(--text-color);
+    color: var(--primary-bg);
+    border-color: var(--text-color);
+    transform: translateY(-2px);
+}
+
+/* --- Popup Styles (Reusable for all popups) --- */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Stronger blur effect */
+}
+
+.popup-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    max-width: 750px; /* Wider popup */
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    animation: fadeInScale 0.4s ease-out forwards; /* Slightly longer animation */
+}
+
+.popup-content h4 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 2em; /* Larger heading */
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #eee; /* Separator */
+    padding-bottom: 15px;
+}
+
+.full-description { /* Class for the full description text inside popup */
+    line-height: 1.8; /* More comfortable reading */
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 1.1em; /* Slightly larger text */
+}
+
+.popup-content ul {
+    list-style-type: disc;
+    margin-left: 25px; /* More indentation */
+    margin-bottom: 20px;
+}
+
+.popup-content ul li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.close-popup-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 18px; /* Larger padding */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer;
+    font-size: 1.2em; /* Larger font */
+    line-height: 1; /* Center text vertically */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.close-popup-btn:hover {
+    background-color: #c82333;
+    transform: rotate(90deg); /* Little spin effect on hover */
+}
+
+/* Animation for popup appearance */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.85); /* Starts from slightly smaller */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+        /* --- New Contact Section Styling --- */
+.contact-section {
+    /* Make it big and separate */
+    background-color: var(--primary-bg); /* Use your main background or a contrasting color */
+    padding: 6rem 0; /* Increase padding for a 'bigger' look */
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-section h2 {
+    font-size: 2.5rem; /* Large, attractive heading */
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto; /* Center the paragraph and add space below */
+    color: var(--text-color);
+}
+
+/* Call to Action Button Style */
+.cta-button {
+    display: inline-block;
+    background-color: var(--highlight-color); /* Use your theme's highlight color */
+    color: var(--primary-bg); /* Text color that contrasts well with the highlight */
+    padding: 0.75rem 2rem;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    background-color: color-mix(in srgb, var(--highlight-color) 80%, black); /* Slightly darker on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+
+/* Social Links Style (for the contact section) */
+.contact-section .social-links {
+    margin-top: 2rem;
+}
+
+.contact-section .social-links a {
+    /* You can make the icons bigger here */
+    font-size: 1.5rem; 
+    margin: 0 1.2rem;
+    /* You might want to use actual social icons (e.g., Font Awesome) for more visual appeal */
+}
+
+/* --- Simplified Footer Styling --- */
+.minimal-footer {
+    background-color: var(--secondary-bg);
+    text-align: center;
+    padding: 1.5rem 0; /* Reduced padding as the contact is now separate */
+}
+
+.minimal-footer p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
+
+        /* Responsive Design */
+        @media (min-width: 769px) {
+            .about-content-wrapper {
+                flex-direction: row; /* Row for larger screens */
+                text-align: left;
+            }
+
+            .profile-image-container {
+                margin-right: 2rem; /* Add spacing to the right of image */
+            }
+
+            .about-section p {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                right: 0;
+                top: 60px;
+                background-color: var(--secondary-bg);
+                height: calc(100vh - 60px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 60%;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+                padding-top: 2rem;
+                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.nav-active {
+                transform: translateX(0%);
+            }
+
+            .nav-links li {
+                opacity: 0;
+                margin: 1.5rem 0;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .skills-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-showcase-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem;
+            }
+
+            .skills-label {
+                writing-mode: horizontal-tb;
+                transform: rotate(0deg);
+                width: 100%;
+                height: auto;
+                margin-bottom: 2rem;
+                margin-top: 0;
+            }
+
+            .skills-grid-image {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skills-grid-image {
+                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+                gap: 1rem;
+            }
+
+            .skill-item-image {
+                padding: 0.8rem;
+                min-height: 100px;
+            }
+
+            .skill-item-image img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .skill-item-image span {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Burger Animation */
+        .toggle .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .toggle .line2 {
+            opacity: 0;
+        }
+        .toggle .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Keyframes for skill bar animation (if you decide to re-enable) */
+        @keyframes fillSkillBar {
+            from { width: 0; }
+            to { width: var(--skill-percent); }
+        }
+
+        /* Applying animation to skill bars */
+        .skill-item.in-view .skill-bar {
+            animation: fillSkillBar 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">PORTFOLIO</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'demo' %}">HOME</a></li>
+                <li><a href="#what-i-do">ABOUT</a></li>
+                <li><a href="#skills-showcase">SKILLS</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="moving-text">Hi, I'm [BENEESH V]</h1>
+                <p class="tagline">Software Engneer</p>
+                <a href="#projects" class="btn-primary">View My Work</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content-wrapper">
+                    <div class="profile-image-container">
+                        <img src="images/beneesh.jpg" alt="Your Profile Picture" class="profile-image">
+                    </div>
+                    <div class="about-text">
+                        <p>
+                            Hi, I'm Beneesh V, a passionate and dedicated web developer. I completed my Bachelor of Computer Applications (BCA) from St. Antony’s College, Peruvanthanam, and I’m currently pursuing my Master of Computer Applications (MCA) at Marian College, Kuttikkanam.
+
+I have a strong interest in web development and enjoy working with technologies like Django, HTML, CSS, JavaScript, WordPress, Next.js, and SQL. I’m always eager to learn new tools and frameworks to enhance my development skills and build creative, user-friendly web solutions.
+
+Outside of academics, I come from a nuclear family with my mother, father, and sister, who constantly motivate and support me in my journey.
+
+My goal is to grow as a professional developer and contribute to meaningful digital projects that make a real impact.
+                        </p>
+                        <p>
+                            I thrive on challenges and constantly seek to learn and grow. Let's connect and build something amazing together!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section id="skills-showcase" class="skills-showcase-section">
+            <div class="container skills-showcase-container">
+                <div class="skills-label">
+                    <span>Skills</span>
+                </div>
+                <div class="skills-grid-image">
+                    <div class="skill-item-image">
+                        <img src="https://static.vecteezy.com/system/resources/previews/013/313/458/original/html-icon-3d-rendering-illustration-vector.jpg" alt="HTML Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=HTML';">
+                        <span>HTML</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://logospng.org/download/css-3/logo-css-3-2048.png" alt="CSS Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=CSS';">
+                        <span>CSS</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://placehold.co/60x60/E91E63/fff?text=Sass" alt="SASS Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Sass';">
+                        <span>SASS</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://static.vecteezy.com/system/resources/previews/027/127/560/original/javascript-logo-javascript-icon-transparent-free-png.png" alt="JavaScript Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=JS';">
+                        <span>JAVASCRIPT</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://placehold.co/60x60/000/fff?text=Next" alt="Next JS Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Next';">
+                        <span>NEXT JS</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.ex75g4-5QfD5ES2M34-MnwHaHa?pid=Api&P=0&h=220" alt="GitHub Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Git';">
+                        <span>GITHUB</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://brandslogos.com/wp-content/uploads/images/large/python-logo.png" alt="Python Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Python';">
+                        <span>PYTHON</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://seeklogo.com/images/D/django-logo-4C5ECF7036-seeklogo.com.png" alt="Django Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Django';">
+                        <span>DJANGO</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1985px-Postgresql_elephant.svg.png" alt="PostgreSQL Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=PostgreSQL';">
+                        <span>POSTGRESQL</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.kY-iKNMB6IHDzoeQlMW3fAHaEK?pid=Api&P=0&h=220" alt="Dockers Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Docker';">
+                        <span>DOCKERS</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://logowik.com/content/uploads/images/jenkins8460.jpg" alt="GitHub Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Git';">
+                        <span>JENKINS</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://images.seeklogo.com/logo-png/52/3/github-logo-png_seeklogo-525522.png" alt="Python Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Python';">
+                        <span>GITHUB ACTIONS</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.Q5K3ZcL44_iWH0CfOeyh-AHaHW?pid=Api&P=0&h=220" alt="Django Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Django';">
+                        <span>WORDPRESS</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://www.jeveuxetredatascientist.fr/wp-content/uploads/2023/09/Power-BI-Logo-2016.png" alt="PostgreSQL Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=PostgreSQL';">
+                        <span>POWERBI</span>
+                    </div>
+                    <div class="skill-item-image">
+                        <img src="https://static.vecteezy.com/system/resources/previews/032/329/173/original/canva-icon-logo-symbol-free-png.png" alt="Dockers Icon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Docker';">
+                        <span>CANVA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <section id="projects" class="projects-section">
+    <div class="container">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="{% static 'stream.png' %}" alt="Project 1 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+1';">
+                <h3>Streaming Platform</h3>
+                <p class="project-description">Created an e-commerce platform for mobile products using Django and Bootstrap, featuring user authentication, product listing, and shopping cart functionality. Deployed using Docker for containerized application management. This project demonstrates a full-stack web development approach, from database design to front-end styling and deployment, showcasing a complete and scalable solution for online commerce.</p>
+                <button class="view-more-btn">View More</button>
+                <a href="https://github.com/beneeshv/streaming_platform.git" target="_blank" class="project-link">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="https://placehold.co/400x250/000/fff?text=Project+2" alt="Project 2 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+2';">
+                <h3>Blog</h3>
+                <p class="project-description">Developed a dynamic blog application using Django and JavaScript to manage and publish content efficiently. Implemented a CI/CD pipeline with Docker and Jenkins to automate testing, building, and deployment processes. Utilized AI-assisted development tools such as Cursor AI to improve code quality and productivity. This project highlights proficiency in back-end logic, front-end interactivity, and modern DevOps practices for continuous delivery.</p>
+                <button class="view-more-btn">View More</button>
+                <a href="https://github.com/beneeshv/blog_jango.git" target="_blank" class="project-link">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="https://placehold.co/400x250/000/fff?text=Project+3" alt="Project 3 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+3';">
+                <h3>Hospital management</h3>
+                <p class="project-description">Developed a web-based hospital management platform to simplify appointment scheduling, doctor–patient interaction, and record management. The frontend was built with Next.js for a responsive and dynamic user experience, while Django REST Framework powered the backend API. PostgreSQL was used for secure and efficient data storage. The system includes role-based access for admins, doctors, and patients, enabling seamless healthcare management through an intuitive interface.</p>
+                <button class="view-more-btn">View More</button>
+                <a href="https://github.com/beneeshv/medline.git" target="_blank" class="project-link">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="https://placehold.co/400x250/000/fff?text=Project+4" alt="Project 4 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+4';">
+                <h3>Mobile Store</h3>
+                <p class="project-description">Developed a full-stack movie streaming platform using Django, HTML, CSS, JavaScript, and Bootstrap. Integrated secure payment functionality using Razorpay API for subscription-based access. Deployed the application on Render, ensuring a seamless streaming experience with responsive UI design.</p>
+                <button class="view-more-btn">View More</button>
+                <a href="https://github.com/beneeshv/mobile_store.git" target="_blank" class="project-link">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="https://placehold.co/400x250/000/fff?text=Project+5" alt="Project 5 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+5';">
+                <h3>House Price Prediction</h3>
+                <p class="project-description">Developed a machine learning model to predict house prices based on historical data and relevant features. Utilized algorithms such as K-Nearest Neighbors (KNN), Multiple Linear Regression (MLR), Linear Regression (LR), and Logistic Regression to analyze and compare model performance. Implemented the project using Python and libraries like scikit-learn and pandas.</p>
+                <button class="view-more-btn">View More</button>
+                <a href="https://github.com/beneeshv/mishine_learning.git" target="_blank" class="project-link">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="https://placehold.co/400x250/000/fff?text=Project+6" alt="Project 6 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+6';">
+                <h3>Project Title Six</h3>
+                <p class="project-description">The final project in this showcase, illustrating a comprehensive application or a specific innovative solution. The "View More" functionality ensures that the full impact and details of each project can be appreciated without cluttering the initial view.</p>
+                <button class="view-more-btn">View More</button>
+                <a href="YOUR_GITHUB_LINK_6" target="_blank" class="project-link">View Project</a>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <section id="contact" class="contact-section">
+    <div class="container">
+        <h2>Get In Touch</h2>
+        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+        
+        <a href="mailto:beneeshv23@gmail.com" class="cta-button">Email Me Directly</a>
+
+        <p class="phone-number">📞 Call Me: <a href="tel:9605953502">9605953502</a></p>
+        
+        <div class="social-links">
+            <a href="www.linkedin.com/in/beneesh-v" target="_blank">LinkedIn</a>
+            <a href="https://github.com/beneeshv" target="_blank">GitHub</a>
+            <a href="#" target="_blank">Twitter</a>
+        </div>
+        
+        </div>
+</section>
+
+<footer class="minimal-footer">
+    <div class="container">
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </div>
+</footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+            const portfolioLogo = document.querySelector('.logo a');
+
+            // --- Navigation Burger Menu ---
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
+                });
+                burger.classList.toggle('toggle');
+            });
+
+            // Close nav when a link is clicked (for mobile)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (nav.classList.contains('nav-active')) {
+                        nav.classList.remove('nav-active');
+                        burger.classList.remove('toggle');
+                        navLinks.forEach((l) => {
+                            l.style.animation = '';
+                        });
+                    }
+                });
+            });
+
+            // --- Smooth Scrolling ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // --- "View More" Project Description Functionality ---
+            document.querySelectorAll('.project-card').forEach(card => {
+                const description = card.querySelector('.project-description');
+                const viewMoreBtn = card.querySelector('.view-more-btn');
+
+                // Check if the description content overflows
+                // This check is a bit tricky with -webkit-line-clamp as it doesn't directly expose scrollHeight.
+                // A common workaround is to check if the height with clamp is less than without.
+                // For simplicity, we'll assume a certain max height for the collapsed state.
+                // If you need perfect detection, you might need to temporarily remove clamp, check scrollHeight, then reapply.
+                // For now, if the text is long enough to potentially overflow 3 lines, the button will appear.
+                const initialLineHeight = parseFloat(getComputedStyle(description).lineHeight);
+                const maxHeightForThreeLines = initialLineHeight * 3 + 5; // A small buffer
+
+                // We'll use a simpler check: if the actual scrollHeight is greater than a reasonable
+                // height for the truncated text, show the button.
+                // This requires a brief moment after rendering to accurately calculate.
+                setTimeout(() => {
+                    // Temporarily remove line-clamp to get full height
+                    description.style.webkitLineClamp = 'unset';
+                    const fullHeight = description.scrollHeight;
+                    // Reapply line-clamp
+                    description.style.webkitLineClamp = '3';
+                    const truncatedHeight = description.clientHeight; // Height when clamped
+
+                    if (fullHeight > truncatedHeight) {
+                        viewMoreBtn.style.display = 'block'; // Show the button
+                    } else {
+                        viewMoreBtn.style.display = 'none'; // Hide if not overflowing
+                    }
+                }, 0); // Run after current rendering cycle
+
+                viewMoreBtn.addEventListener('click', () => {
+                    description.classList.toggle('expanded');
+                    if (description.classList.contains('expanded')) {
+                        viewMoreBtn.textContent = 'View Less';
+                    } else {
+                        viewMoreBtn.textContent = 'View More';
+                    }
+                });
+            });
+        });
+
+
+
+        
+    </script>
+</body>
+</html>
