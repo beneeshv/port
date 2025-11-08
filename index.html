@@ -6,6 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beneesh V - Portfolio</title>
+    <!-- Preconnect for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://placehold.co">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* General Styles */
@@ -671,7 +675,7 @@
         /* Skills Showcase Section */
         .skills-showcase-section {
             padding: 8rem 0;
-            background: #000000;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
             position: relative;
             overflow: hidden;
         }
@@ -682,8 +686,9 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            box-shadow: 0 2px 10px rgba(255,255,255,0.1);
         }
 
         .skills-showcase-section::after {
@@ -692,9 +697,9 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -879,6 +884,32 @@
 .projects-section {
     padding: 60px 20px;
     text-align: center;
+    background: linear-gradient(135deg, #111111 0%, #1e1e1e 50%, #111111 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    box-shadow: 0 2px 10px rgba(255,255,255,0.08);
+}
+
+.projects-section::after {
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .projects-section h2 {
@@ -1047,6 +1078,24 @@
     transition: transform 0.5s ease;
     cursor: pointer;
     display: block;
+}
+
+/* Image loading optimization */
+.main-project-image {
+    background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+}
+
+.main-project-image[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.main-project-image.loaded {
+    opacity: 1;
+}
+
+.gallery-thumbnail img {
+    background: #0a0a0a;
 }
 
 .project-image-wrapper:hover .main-project-image {
@@ -1924,7 +1973,7 @@
                     <div class="project-image-overlay">
                         <div class="project-image-overlay-text">Click to Enlarge</div>
                     </div>
-                    <img class="main-project-image" src="images/stream.png" alt="Project 1 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+1';">
+                    <img class="main-project-image" src="images/stream.png" alt="Project 1 Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+1';">
                 </div>
                 <h3>Streaming Platform</h3>
                 <p class="project-description">Created an e-commerce platform for mobile products using Django and Bootstrap, featuring user authentication, product listing, and shopping cart functionality. Deployed using Docker for containerized application management. This project demonstrates a full-stack web development approach, from database design to front-end styling and deployment, showcasing a complete and scalable solution for online commerce.</p>
@@ -1947,7 +1996,7 @@
                     <div class="project-image-overlay">
                         <div class="project-image-overlay-text">Click to Enlarge</div>
                     </div>
-                    <img class="main-project-image" src="https://placehold.co/400x250/000/fff?text=Project+2" alt="Project 2 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+2';">
+                    <img class="main-project-image" src="https://placehold.co/400x250/000/fff?text=Project+2" alt="Project 2 Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+2';">
                 </div>
                 <h3>Blog</h3>
                 <p class="project-description">Developed a dynamic blog application using Django and JavaScript to manage and publish content efficiently. Implemented a CI/CD pipeline with Docker and Jenkins to automate testing, building, and deployment processes. Utilized AI-assisted development tools such as Cursor AI to improve code quality and productivity. This project highlights proficiency in back-end logic, front-end interactivity, and modern DevOps practices for continuous delivery.</p>
@@ -1960,22 +2009,22 @@
                         <div class="gallery-thumbnail active" data-image="images/hospital.png">
                             <img src="images/hospital.png" alt="View 1">
                         </div>
-                        <div class="gallery-thumbnail" data-image="https://placehold.co/800x600/1a1a1a/fff?text=Appointments">
-                            <img src="https://placehold.co/800x600/1a1a1a/fff?text=Appointments" alt="View 2">
+                        <div class="gallery-thumbnail" data-image="images/hospital1.png">
+                            <img src="images/hospital1.png" alt="View 2">
                         </div>
-                        <div class="gallery-thumbnail" data-image="https://placehold.co/800x600/1a1a1a/fff?text=Records">
-                            <img src="https://placehold.co/800x600/1a1a1a/fff?text=Records" alt="View 3">
+                        <div class="gallery-thumbnail" data-image="images/hospital2.png">
+                            <img src="images/hospital2.png" alt="View 3">
                         </div>
                     </div>
                     <div class="project-image-overlay">
                         <div class="project-image-overlay-text">Click to Enlarge</div>
                     </div>
-                    <img class="main-project-image" src="images/hospital.png" alt="Project 3 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+3';">
+                    <img class="main-project-image" src="images/hospital.png" alt="Project 3 Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+3';">
                 </div>
                 <h3>Hospital management</h3>
                 <p class="project-description">Developed a web-based hospital management platform to simplify appointment scheduling, doctor–patient interaction, and record management. The frontend was built with Next.js for a responsive and dynamic user experience, while Django REST Framework powered the backend API. PostgreSQL was used for secure and efficient data storage. The system includes role-based access for admins, doctors, and patients, enabling seamless healthcare management through an intuitive interface.</p>
                 <button class="view-more-btn">View More</button>
-                <a href="https://github.com/beneeshv/medline.git" target="_blank" class="project-link">View Project</a>
+                <a href="https://github.com/beneeshv/medline-main.git" target="_blank" class="project-link">View Project</a>
             </div>
             <div class="project-card">
                 <div class="project-image-wrapper">
@@ -1983,17 +2032,17 @@
                         <div class="gallery-thumbnail active" data-image="images/phone.png">
                             <img src="images/phone.png" alt="View 1">
                         </div>
-                        <div class="gallery-thumbnail" data-image="https://placehold.co/800x600/1a1a1a/fff?text=Products">
-                            <img src="https://placehold.co/800x600/1a1a1a/fff?text=Products" alt="View 2">
+                        <div class="gallery-thumbnail" data-image="images/phone1.png">
+                            <img src="images/phone1.png" alt="View 2">
                         </div>
-                        <div class="gallery-thumbnail" data-image="https://placehold.co/800x600/1a1a1a/fff?text=Cart">
-                            <img src="https://placehold.co/800x600/1a1a1a/fff?text=Cart" alt="View 3">
+                        <div class="gallery-thumbnail" data-image="images/phone2.png">
+                            <img src="images/phone2.png" alt="View 3">
                         </div>
                     </div>
                     <div class="project-image-overlay">
                         <div class="project-image-overlay-text">Click to Enlarge</div>
                     </div>
-                    <img class="main-project-image" src="images/phone.png" alt="Project 4 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+4';">
+                    <img class="main-project-image" src="images/phone.png" alt="Project 4 Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+4';">
                 </div>
                 <h3>Mobile Store</h3>
                 <p class="project-description">Developed a full-stack movie streaming platform using Django, HTML, CSS, JavaScript, and Bootstrap. Integrated secure payment functionality using Razorpay API for subscription-based access. Deployed the application on Render, ensuring a seamless streaming experience with responsive UI design.</p>
@@ -2016,7 +2065,7 @@
                     <div class="project-image-overlay">
                         <div class="project-image-overlay-text">Click to Enlarge</div>
                     </div>
-                    <img class="main-project-image" src="https://placehold.co/400x250/000/fff?text=Project+5" alt="Project 5 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+5';">
+                    <img class="main-project-image" src="https://placehold.co/400x250/000/fff?text=Project+5" alt="Project 5 Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+5';">
                 </div>
                 <h3>House Price Prediction</h3>
                 <p class="project-description">Developed a machine learning model to predict house prices based on historical data and relevant features. Utilized algorithms such as K-Nearest Neighbors (KNN), Multiple Linear Regression (MLR), Linear Regression (LR), and Logistic Regression to analyze and compare model performance. Implemented the project using Python and libraries like scikit-learn and pandas.</p>
@@ -2039,7 +2088,7 @@
                     <div class="project-image-overlay">
                         <div class="project-image-overlay-text">Click to Enlarge</div>
                     </div>
-                    <img class="main-project-image" src="https://placehold.co/400x250/000/fff?text=Project+6" alt="Project 6 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+6';">
+                    <img class="main-project-image" src="https://placehold.co/400x250/000/fff?text=Project+6" alt="Project 6 Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+6';">
                 </div>
                 <h3>Project Title Six</h3>
                 <p class="project-description">The final project in this showcase, illustrating a comprehensive application or a specific innovative solution. The "View More" functionality ensures that the full impact and details of each project can be appreciated without cluttering the initial view.</p>
@@ -2269,17 +2318,45 @@
                 });
             });
             
-            // --- Auto Image Rotation ---
+            // --- Lazy Load Image Handler ---
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            lazyImages.forEach(img => {
+                img.addEventListener('load', () => {
+                    img.classList.add('loaded');
+                });
+            });
+
+            // --- Auto Image Rotation (Optimized) ---
             const projectCards = document.querySelectorAll('.project-card');
-            projectCards.forEach(card => {
+            const rotationIntervals = new Map();
+            
+            // Intersection Observer for performance
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const card = entry.target;
+                    if (entry.isIntersecting) {
+                        // Start rotation when card is visible
+                        if (!rotationIntervals.has(card)) {
+                            startRotation(card);
+                        }
+                    } else {
+                        // Stop rotation when card is not visible
+                        if (rotationIntervals.has(card)) {
+                            clearInterval(rotationIntervals.get(card));
+                            rotationIntervals.delete(card);
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            function startRotation(card) {
                 const thumbnails = card.querySelectorAll('.gallery-thumbnail');
                 const mainImage = card.querySelector('.main-project-image');
                 
                 if (thumbnails.length > 0) {
                     let currentIndex = 0;
                     
-                    // Auto-rotate images every 3 seconds
-                    setInterval(() => {
+                    const interval = setInterval(() => {
                         currentIndex = (currentIndex + 1) % thumbnails.length;
                         const newImageSrc = thumbnails[currentIndex].getAttribute('data-image');
                         
@@ -2294,8 +2371,13 @@
                         thumbnails.forEach(t => t.classList.remove('active'));
                         thumbnails[currentIndex].classList.add('active');
                     }, 3000);
+                    
+                    rotationIntervals.set(card, interval);
                 }
-            });
+            }
+            
+            // Observe all project cards
+            projectCards.forEach(card => observer.observe(card));
         });
 
         // Image Modal Functions
