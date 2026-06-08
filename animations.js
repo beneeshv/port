@@ -12,9 +12,10 @@ class ParticleSystem {
     constructor(container) {
         this.container = container;
         this.particles = [];
-        this.particleCount = 80;
+        this.particleCount = 40;
         this.mouseX = 0;
         this.mouseY = 0;
+        this.isVisible = true;
         this.init();
     }
 
@@ -38,12 +39,18 @@ class ParticleSystem {
         this.createParticles();
         this.animate();
         
-        window.addEventListener('resize', () => this.resize());
+        window.addEventListener('resize', () => this.resize(), { passive: true });
         this.container.addEventListener('mousemove', (e) => {
             const rect = this.container.getBoundingClientRect();
             this.mouseX = e.clientX - rect.left;
             this.mouseY = e.clientY - rect.top;
-        });
+        }, { passive: true });
+
+        // Pause when not visible for performance
+        const observer = new IntersectionObserver((entries) => {
+            this.isVisible = entries[0].isIntersecting;
+        }, { threshold: 0.1 });
+        observer.observe(this.container);
     }
 
     resize() {
@@ -67,6 +74,10 @@ class ParticleSystem {
     }
 
     animate() {
+        if (!this.isVisible) {
+            requestAnimationFrame(() => this.animate());
+            return;
+        }
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
         this.particles.forEach((p, i) => {
@@ -111,11 +122,11 @@ class ParticleSystem {
                 const dx = p.x - p2.x;
                 const dy = p.y - p2.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 120) {
+                if (dist < 80) {
                     this.ctx.beginPath();
                     this.ctx.moveTo(p.x, p.y);
                     this.ctx.lineTo(p2.x, p2.y);
-                    this.ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 * (1 - dist / 120)})`;
+                    this.ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 * (1 - dist / 80)})`;
                     this.ctx.lineWidth = 0.5;
                     this.ctx.stroke();
                 }
@@ -511,7 +522,7 @@ class ParallaxScroll {
             this.elements.push({ element: heroContent, speed: 0.3 });
         }
 
-        window.addEventListener('scroll', () => this.onScroll());
+        window.addEventListener('scroll', () => this.onScroll(), { passive: true });
     }
 
     onScroll() {
@@ -889,8 +900,8 @@ class LoadingScreen {
         window.addEventListener('load', () => {
             setTimeout(() => {
                 loader.classList.add('loaded');
-                setTimeout(() => loader.remove(), 500);
-            }, 500);
+                setTimeout(() => loader.remove(), 300);
+            }, 200);
         });
     }
 
@@ -1044,7 +1055,7 @@ class FloatingActionButton {
             } else {
                 fab.classList.remove('visible');
             }
-        });
+        }, { passive: true });
         
         fabBtn.addEventListener('click', () => {
             window.scrollTo({
@@ -1075,7 +1086,7 @@ class SectionProgress {
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             const progress = (scrollTop / docHeight) * 100;
             progressBar.style.width = `${progress}%`;
-        });
+        }, { passive: true });
     }
 
     injectStyles() {
@@ -1100,22 +1111,27 @@ class SectionProgress {
 // INITIALIZE ALL ANIMATIONS
 // ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Initialize loading screen first
     new LoadingScreen();
     
     // Wait for page to fully load
     window.addEventListener('load', () => {
-        // Hero section particle system
-        const heroSection = document.querySelector('.hero-section');
-        if (heroSection) {
-            new ParticleSystem(heroSection);
+        // Hero section particle system (skip if reduced motion)
+        if (!prefersReducedMotion) {
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                new ParticleSystem(heroSection);
+            }
         }
         
         // Scroll reveal animations
         new ScrollReveal();
         
-        // Custom cursor (only on desktop)
-        if (window.innerWidth > 768) {
+        // Custom cursor (only on desktop, skip if reduced motion)
+        if (window.innerWidth > 768 && !prefersReducedMotion) {
             new CursorGlow();
         }
         
@@ -1124,10 +1140,12 @@ document.addEventListener('DOMContentLoaded', () => {
             new MagneticButton(btn);
         });
         
-        // Tilt effect on cards
-        document.querySelectorAll('.project-card, .highlight-box').forEach(card => {
-            new TiltEffect(card);
-        });
+        // Tilt effect on cards (skip if reduced motion)
+        if (!prefersReducedMotion) {
+            document.querySelectorAll('.project-card, .highlight-box').forEach(card => {
+                new TiltEffect(card);
+            });
+        }
         
         // Ripple effect
         new RippleEffect();
@@ -1152,7 +1170,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Text scramble on hero title (optional enhancement)
         const heroTitle = document.querySelector('.hero-content h1');
-        if (heroTitle) {
+        if (heroTitle && !prefersReducedMotion) {
             heroTitle.addEventListener('mouseenter', () => {
                 const scramble = new TextScramble(heroTitle);
                 scramble.setText(heroTitle.textContent);
@@ -1196,4 +1214,4 @@ const debounce = (func, wait) => {
 // Optimize scroll handlers
 window.addEventListener('scroll', debounce(() => {
     // Trigger any scroll-dependent animations here
-}, 10), { passive: true });
+}, 16), { passive: true });

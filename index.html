@@ -5,11 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beneesh V - Portfolio</title>
+    <title>Beneesh V - Portfolio | Full-Stack Web Developer</title>
+    <meta name="description" content="Beneesh V - Software Engineer specializing in Django, Next.js, WordPress, and building scalable web applications. View my projects and experience.">
     <!-- Preconnect for faster resource loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://placehold.co">
+    <link rel="preload" as="image" href="images/ben.jpg">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap"
         rel="stylesheet">
@@ -1065,7 +1066,8 @@
             }
         }
 
-        .skill-item-image img {
+        .skill-item-image img,
+        .skill-item-image svg {
             width: 70px;
             height: 70px;
             object-fit: contain;
@@ -1073,7 +1075,8 @@
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         }
 
-        .skill-item-image:hover img {
+        .skill-item-image:hover img,
+        .skill-item-image:hover svg {
             transform: scale(1.1) rotateY(360deg);
         }
 
@@ -2458,7 +2461,7 @@
                 <h2>About Me</h2>
                 <div class="about-content-wrapper">
                     <div class="profile-image-container">
-                        <img src="images/ben.jpg" alt="Beneesh V - Web Developer" class="profile-image">
+                        <img src="images/ben.jpg" alt="Beneesh V - Web Developer" class="profile-image" width="220" height="220" fetchpriority="high" decoding="async">
                     </div>
                     <div class="about-text">
                         <p class="about-intro">
@@ -2525,20 +2528,15 @@
                                 </div>
                             </div>
                             <p class="experience-description">
-                                Worked as an AI Developer Intern focusing on computer vision and model training, contributing to the Pickadspace Vision by developing computer vision solutions and AI-based visual analysis features.
+                                AI Developer Intern contributing to <a href="https://pickadspace.com" target="_blank" style="color: var(--highlight-color); text-decoration: underline;">pickadspace.com</a> by developing computer vision solutions and AI-based visual analysis features.
                             </p>
                             <div class="experience-highlights">
-                                <h4>Key Responsibilities & Achievements:</h4>
+                                <h4>Key Achievements:</h4>
                                 <ul>
-                                    <li>Worked on a live production project at Pickadspace.com, developing computer vision solutions and AI-based visual analysis features.</li>
-                                    <li>Worked closely with the CTO of Capsdata, who has over 10 years of experience at Intel.</li>
-                                    <li>Fine-tuned YOLO-based object detection models for real-world vision use cases.</li>
-                                    <li>Developed and implemented new features to improve people counting accuracy, optimizing YOLO-based detection models and OpenCV pipelines for reliable real-time analytics.</li>
-                                    <li>Performed data preprocessing, annotation, and augmentation to improve model accuracy and performance.</li>
-                                    <li>Assisted in deploying trained models for real-time and batch inference workflows.</li>
-                                    <li>Worked with OpenCV (including OpenCV DNN), PyTorch, and Python for developing and optimizing computer vision models.</li>
-                                    <li>Developed Python GUI applications using PyQt5 for AI-based tools and interfaces.</li>
-                                    <li>Used Windows Security features and Win32API for secure and system-level application integration.</li>
+                                    <li>Utilized OpenCV DNN to process advertising screen images to find age and gender demographics.</li>
+                                    <li>Fine-tuned YOLO-based object detection models for accurate real-time people counting.</li>
+                                    <li>Developed Python GUI applications with PyQt5 and integrated secure workflows using Win32API.</li>
+                                    <li>Collaborated with industry experts to deploy optimized computer vision models for real-time inference.</li>
                                 </ul>
                             </div>
                             <div class="experience-tech-stack">
@@ -2564,134 +2562,103 @@
                 <div class="skills-grid-image">
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://static.vecteezy.com/system/resources/previews/013/313/458/original/html-icon-3d-rendering-illustration-vector.jpg"
-                                alt="HTML Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=HTML';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><path d="M4 3l1.778 17.09L12 22l6.222-1.91L20 3H4z" fill="#E44D26"/><path d="M12 4.44v15.67l5.04-1.54L18.32 4.44H12z" fill="#F16529"/><path d="M8.2 8.16H12v2.32H8.64l.29 2.84H12v2.32H6.99L6.42 8.16h1.78zm7.68 0h1.7l-.84 8.48L12 18.32v-2.48l3.24-.97.37-4.39H12V8.16h3.88z" fill="#fff"/></svg>
                         </div>
                         <span>HTML</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://logospng.org/download/css-3/logo-css-3-2048.png" alt="CSS Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=CSS';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><path d="M4 3l1.778 17.09L12 22l6.222-1.91L20 3H4z" fill="#1572B6"/><path d="M12 4.44v15.67l5.04-1.54L18.32 4.44H12z" fill="#33A9DC"/><path d="M8.2 8.16H12v2.32H8.64l.29 2.84H12v2.32H6.99L6.42 8.16h1.78zm7.68 0h1.7l-.84 8.48L12 18.32v-2.48l3.24-.97.37-4.39H12V8.16h3.88z" fill="#fff"/></svg>
                         </div>
                         <span>CSS</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://static.vecteezy.com/system/resources/previews/022/100/214/original/java-logo-transparent-free-png.png"
-                                alt="JAVA Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Java';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><path d="M8.85 18.56s-.92.53.65.71c1.9.22 2.87.19 4.97-.21 0 0 .55.35 1.32.65-4.7 2.01-10.63-.12-6.94-1.15z" fill="#5382A1"/><path d="M8.17 15.86s-1.03.76.54.92c2.03.21 3.64.23 6.41-.31 0 0 .38.39.99.6-5.68 1.66-12.01.13-7.94-.61z" fill="#5382A1"/><path d="M13.54 11.43c1.16 1.33-.3 2.53-.3 2.53s2.94-1.52 1.59-3.42c-1.26-1.77-2.23-2.65 3.01-5.69 0 0-8.22 2.05-4.3 6.58z" fill="#E76F00"/><path d="M14.4 1s2.5 2.5-2.37 6.34c-3.9 3.08-.89 4.83 0 6.84-2.27-2.05-3.94-3.86-2.82-5.54C10.85 6.17 15.4 4.97 14.4 1z" fill="#E76F00"/></svg>
                         </div>
                         <span>JAVA</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://static.vecteezy.com/system/resources/previews/027/127/560/original/javascript-logo-javascript-icon-transparent-free-png.png"
-                                alt="JavaScript Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=JS';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><path d="M3 3h18v18H3V3z" fill="#F7DF1E"/><path d="M15.74 18.6c.42.69.97 1.2 1.95 1.2.82 0 1.34-.41 1.34-.97 0-.68-.54-.92-1.44-1.31l-.49-.21c-1.42-.61-2.37-1.37-2.37-2.97 0-1.48 1.13-2.6 2.88-2.6 1.25 0 2.15.44 2.8 1.58l-1.53.98c-.34-.6-.7-.84-1.27-.84-.58 0-.94.37-.94.84 0 .59.37.83 1.21 1.2l.49.21c1.68.72 2.62 1.45 2.62 3.1 0 1.77-1.39 2.74-3.27 2.74-1.83 0-3.01-.87-3.59-2.02l1.6-.92zm-6.94.11c.31.55.59 1.01 1.27 1.01.65 0 1.06-.25 1.06-1.24V11.77h1.97v6.75c0 2.04-1.2 2.97-2.94 2.97-1.58 0-2.49-.82-2.95-1.8l1.6-.98z" fill="#000"/></svg>
                         </div>
                         <span>JAVASCRIPT</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://placehold.co/60x60/000/fff?text=Next" alt="Next JS Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Next';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#000"/><path d="M10.5 17.5V8L17 17.5h-2l-1.5-2.2h-3v-1.5h2.2L10.5 10v7.5h-2zm6-5.5h2v6h-2z" fill="#fff"/></svg>
                         </div>
                         <span>NEXT JS</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://tse4.mm.bing.net/th/id/OIP.ex75g4-5QfD5ES2M34-MnwHaHa?pid=Api&P=0&h=220"
-                                alt="GitHub Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Git';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#24292f"/><path d="M12 3.5c-4.69 0-8.5 3.81-8.5 8.5 0 3.76 2.44 6.94 5.81 8.06.43.08.58-.18.58-.41 0-.2-.01-.74-.01-1.44-2.36.51-2.86-1.14-2.86-1.14-.39-.98-.94-1.24-.94-1.24-.77-.53.06-.52.06-.52.85.06 1.3.88 1.3.88.76 1.3 1.99.92 2.47.71.08-.55.3-.92.54-1.13-1.89-.21-3.87-.94-3.87-4.2 0-.93.33-1.69.88-2.28-.09-.21-.38-1.08.08-2.25 0 0 .71-.23 2.34.87A8.14 8.14 0 0112 7.7c.72.003 1.45.1 2.14.29 1.62-1.1 2.33-.87 2.33-.87.46 1.17.17 2.03.08 2.25.55.59.87 1.35.87 2.28 0 3.27-1.99 3.98-3.88 4.19.3.26.58.78.58 1.58 0 1.14-.01 2.06-.01 2.33 0 .23.15.49.59.41C18.07 18.44 20.5 15.25 20.5 11.5c0-4.69-3.81-8.5-8.5-8.5z" fill="#fff"/></svg>
                         </div>
                         <span>GITHUB</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://brandslogos.com/wp-content/uploads/images/large/python-logo.png"
-                                alt="Python Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Python';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><path d="M9.87 15.27c-.26.6-.89 1.02-1.62 1.02a1.76 1.76 0 01-1.76-1.76V9.91c0-.97.79-1.76 1.76-1.76.73 0 1.36.42 1.62 1.02" stroke="#3776AB" stroke-width="1.5" fill="none"/><path d="M14.13 8.73c.26-.6.89-1.02 1.62-1.02.97 0 1.76.79 1.76 1.76v4.62c0 .97-.79 1.76-1.76 1.76-.73 0-1.36-.42-1.62-1.02" stroke="#FFD845" stroke-width="1.5" fill="none"/><rect x="9.5" y="7" width="2" height="4.5" rx="1" fill="#3776AB"/><rect x="12.5" y="12.5" width="2" height="4.5" rx="1" fill="#FFD845"/><circle cx="10.5" cy="6" r="1" fill="#3776AB"/><circle cx="13.5" cy="18" r="1" fill="#FFD845"/></svg>
                         </div>
                         <span>PYTHON</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://seeklogo.com/images/D/django-logo-4C5ECF7036-seeklogo.com.png"
-                                alt="Django Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Django';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z" fill="#092E20"/><path d="M10 8h2v7.5c-2.5.3-4-.5-4.5-1.5L10 13V8zm5 0h2v4.5l-2 1V8zm0 7l2-1v2l-2 1v-2z" fill="#fff"/></svg>
                         </div>
                         <span>DJANGO</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1985px-Postgresql_elephant.svg.png"
-                                alt="PostgreSQL Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=PostgreSQL';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#336791"/><path d="M15.5 7c-1.1 0-2 .5-2.5 1.3-.5-.8-1.4-1.3-2.5-1.3C8.5 7 7 8.5 7 10.5c0 1 .4 1.9 1 2.5-.6.6-1 1.5-1 2.5C7 17.5 8.5 19 10.5 19c1.1 0 2-.5 2.5-1.3.5.8 1.4 1.3 2.5 1.3 2 0 3.5-1.5 3.5-3.5 0-1-.4-1.9-1-2.5.6-.6 1-1.5 1-2.5C19 8.5 17.5 7 15.5 7z" fill="#fff"/><ellipse cx="10.5" cy="10.5" rx="1.5" ry="2" fill="#336791"/><path d="M13.5 13c0 .8-.3 1.5-.8 2" stroke="#336791" stroke-width="1"/></svg>
                         </div>
                         <span>POSTGRESQL</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://tse2.mm.bing.net/th/id/OIP.kY-iKNMB6IHDzoeQlMW3fAHaEK?pid=Api&P=0&h=220"
-                                alt="Docker Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Docker';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><rect x="2" y="10" width="4" height="3" rx="0.5" fill="#099CEC"/><rect x="7" y="8" width="4" height="5" rx="0.5" fill="#099CEC"/><rect x="12" y="6" width="4" height="7" rx="0.5" fill="#099CEC"/><rect x="17" y="9" width="4" height="4" rx="0.5" fill="#099CEC"/><rect x="7" y="14" width="14" height="3" rx="0.5" fill="#099CEC"/><path d="M3 18h18" stroke="#099CEC" stroke-width="1"/></svg>
                         </div>
                         <span>DOCKER</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://logowik.com/content/uploads/images/jenkins8460.jpg" alt="Jenkins Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Jenkins';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="5" fill="#D33833"/><circle cx="12" cy="9" r="3" fill="#F0D6B7"/><circle cx="11" cy="8.5" r="0.5" fill="#333"/><circle cx="13" cy="8.5" r="0.5" fill="#333"/><path d="M11 10.5c.5.5 1.5.5 2 0" stroke="#333" stroke-width="0.5" fill="none"/><path d="M8 14v5c0 1 1 2 2 2h4c1 0 2-1 2-2v-5" fill="#335061"/><path d="M12 4V2M8 5L6.5 3.5M16 5l1.5-1.5" stroke="#D33833" stroke-width="1" stroke-linecap="round"/></svg>
                         </div>
                         <span>JENKINS</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://images.creativemarket.com/0.1.0/ps/12870856/1821/1214/m1/fpnw/wm0/2238-.jpg?1659206660&s=51bcc6d73d15732baaae8a71889a6a3b"
-                                alt="GitHub Actions Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Actions';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#4285F4"/><path d="M7 8h10M7 11h10M7 14h7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M17 13l3 3-3 3" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
                         <span>SEO</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://tse3.mm.bing.net/th/id/OIP.Q5K3ZcL44_iWH0CfOeyh-AHaHW?pid=Api&P=0&h=220"
-                                alt="WordPress Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=WP';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#21759B"/><path d="M12 4C7.58 4 4 7.58 4 12s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm-6.8 8c0-.66.1-1.3.27-1.9L9.42 21.3A6.8 6.8 0 015.2 12z" fill="#fff"/><path d="M12 18.8c-1.15 0-2.23-.29-3.18-.8l3.37-9.79 3.46 9.48A6.74 6.74 0 0112 18.8z" fill="#fff"/><path d="M18.52 11.15c0 .94-.54 1.73-1.11 2.66-.43.75-.93 1.72-.93 3.12 0 .97.37 2.09.86 3.65l-4.16-12.28c.68-.04 1.3-.1 1.3-.1.61-.07.54-.97-.07-.94 0 0-1.84.14-3.03.14" fill="#fff"/></svg>
                         </div>
                         <span>WORDPRESS</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://www.jeveuxetredatascientist.fr/wp-content/uploads/2023/09/Power-BI-Logo-2016.png"
-                                alt="Power BI Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=PowerBI';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" fill="#F2C811"/><path d="M7 6h2v12H7V6zm3 4h2v8h-2v-8zm3-2h2v10h-2V8zm3 3h2v7h-2v-7z" fill="#333"/></svg>
                         </div>
                         <span>POWER BI</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://static.vecteezy.com/system/resources/previews/032/329/173/original/canva-icon-logo-symbol-free-png.png"
-                                alt="Canva Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Canva';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7B2FF2"/><path d="M8 16c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="#00C4CC" stroke-width="2" fill="none"/><circle cx="12" cy="9" r="2.5" fill="#00C4CC"/><path d="M6 12h2M16 12h2M12 6v2" stroke="#fff" stroke-width="1" stroke-linecap="round"/></svg>
                         </div>
                         <span>CANVA</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://thumbs.dreamstime.com/z/creative-geometric-logo-machine-learning-computer-science-industry-concept-technology-design-element-business-card-label-106384982.jpg"
-                                alt="Canva Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Canva';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" fill="#1a1a2e"/><path d="M7 17l3-5 2 3 3-7 3 9" stroke="#00d4ff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="8" r="2" fill="#ff6b6b"/><circle cx="16" cy="6" r="1.5" fill="#ffd93d"/></svg>
                         </div>
                         <span>ML MODEL</span>
                     </div>
                     <div class="skill-item-image">
                         <div class="skill-icon-wrapper">
-                            <img src="https://as2.ftcdn.net/v2/jpg/03/05/53/11/1000_F_305531173_0A03UhxipQchJNELA1q3EyLTS6GqSoMJ.jpg"
-                                alt="Canva Icon"
-                                onerror="this.onerror=null;this.src='https://placehold.co/60x60/000/fff?text=Canva';">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" fill="#2d3436"/><path d="M6 13h12M6 15.5h8M6 18h10" stroke="#636e72" stroke-width="1" stroke-linecap="round"/><circle cx="17" cy="15.5" r="2" fill="#00b894"/><path d="M7 7h4M7 9.5h6" stroke="#00b894" stroke-width="1.5" stroke-linecap="round"/></svg>
                         </div>
                         <span>NLP</span>
                     </div>
@@ -2722,7 +2689,7 @@
                                 <div class="project-image-overlay-text">Click to Enlarge</div>
                             </div>
                             <img class="main-project-image" src="images/stream.png" alt="Project 1 Thumbnail"
-                                loading="lazy"
+                                loading="lazy" decoding="async"
                                 onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+1';">
                         </div>
                         <h3>Streaming Platform</h3>
@@ -2752,7 +2719,7 @@
                                 <div class="project-image-overlay-text">Click to Enlarge</div>
                             </div>
                             <img class="main-project-image" src="https://placehold.co/400x250/000/fff?text=Project+2"
-                                alt="Project 2 Thumbnail" loading="lazy"
+                                alt="Project 2 Thumbnail" loading="lazy" decoding="async"
                                 onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+2';">
                         </div>
                         <h3>Blog</h3>
@@ -2783,7 +2750,7 @@
                                 <div class="project-image-overlay-text">Click to Enlarge</div>
                             </div>
                             <img class="main-project-image" src="images/hospital.png" alt="Project 3 Thumbnail"
-                                loading="lazy"
+                                loading="lazy" decoding="async"
                                 onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+3';">
                         </div>
                         <h3>Hospital management</h3>
@@ -2818,7 +2785,7 @@
                                 <div class="project-image-overlay-text">Click to Enlarge</div>
                             </div>
                             <img class="main-project-image" src="images/phone.png" alt="Project 4 Thumbnail"
-                                loading="lazy"
+                                loading="lazy" decoding="async"
                                 onerror="this.onerror=null;this.src='https://placehold.co/400x250/000/fff?text=Project+4';">
                         </div>
                         <h3>Mobile Store</h3>
@@ -3039,7 +3006,7 @@
                 } else {
                     header.classList.remove('scrolled');
                 }
-            });
+            }, { passive: true });
 
             // --- Active Section Highlighting (Scroll Spy) ---
             window.addEventListener('scroll', () => {
@@ -3058,7 +3025,7 @@
                         link.classList.add('active');
                     }
                 });
-            });
+            }, { passive: true });
 
             // --- Navigation Burger Menu ---
             burger.addEventListener('click', () => {
@@ -3350,7 +3317,8 @@
     </script>
 
     <!-- Premium Animations -->
-    <script src="animations.js"></script>
+    <script src="animations.js" defer></script>
+    <script src="visitor-tracker.js" defer></script>
 </body>
 
 </html>
