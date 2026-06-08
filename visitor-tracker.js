@@ -30,7 +30,7 @@
   // ── Configuration ────────────────────────────────────────
   // Replace the URL below with your deployed Google Apps Script Web App URL.
   // See GOOGLE_SHEETS_SETUP.md for instructions on how to get this URL.
-  const TRACKING_ENDPOINT = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+  const TRACKING_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxxxxxxxxxxxx/exec';
 
   const GEO_API            = 'https://ipapi.co/json/';
   const GEO_TIMEOUT_MS     = 3000;   // 3-second timeout for geolocation API
